@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
 # in-class exercise 2019/02/25
 
-all_AAAAA=0 # number of AAAAA* in all articles
 author_list=()
 AAAAA_list=()
 url_list=()
@@ -24,22 +23,34 @@ do
         author=`echo "$article_page" | awk -v FS="(article-meta-value\">)" '{print $2}' | awk -v FS="(</span>)" '{print $1}' | sed '/^$/d'`
         publish_time_str=`echo $article_page | awk -v FS="article-meta-value\">" '{print $5}' | awk -v FS="</span>" '{print $1}'`
 
-        echo "$publish_time_str $author"
-
-        if []; # 2/19
+        #echo "$publish_time_str $author"
+        if [ `echo $publish_time_str | awk -v FS=" " '{print $2 $3}'` = "Feb19" ] # 2/19
         then
-            AAAAA_in_this_article=
-        fi
+            AAAAA_in_this_article=`echo $article_page | grep -o "AAAAA\+"`
+            if [ "$AAAAA_in_this_article" = "" ]
+            then
+                AAAAA_list+=(0)
+            else
+                AAAAA_list+=(`echo "$AAAAA_in_this_article" | wc -l`)
+            fi
+            author_list+=("$author") # mind the double-quote and no $ in front variable
+            url_list+=("$url")
+            #echo "${AAAAA_list[@]}"
+            #echo "${author_list[@]}"
+            #echo "${url_list[@]}"
+        fi # feb 19
     done
 done
 
 echo '有關 { [爆卦] 我是石沐凡，我有話想說 , 2/19 } 的相關搜尋結果如下：'
 
-# TODO 3 : list "# of AAAAA, author, url" each line
-# for ...;
-# do
-#	printf "%-3d %-3s %-3s\n" "<# of AAAAA>" "<url>" "<author>"
-# done
+# 3 : list "# of AAAAA, author, url" each line
+all_AAAAA=0 # number of AAAAA* in all articles
+for i in $( seq 0 $((${#AAAAA_list[@]}-1)) ); # number minus
+do
+    printf "%-3d %-3s %-3s\n" "${AAAAA_list[i]}" "${url_list[i]}" "${author_list[i]}" # pass argument
+    all_AAAAA=$((${AAAAA_list[i]} + $all_AAAAA))
+done
 echo "共有 $all_AAAAA 個 AAAAA"
 
 
