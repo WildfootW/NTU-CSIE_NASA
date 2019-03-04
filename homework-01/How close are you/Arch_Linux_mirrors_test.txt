@@ -1,0 +1,25 @@
+## Worldwide
+#Server = mirrors.evowise.com
+#Server = mirror.rackspace.com
+
+## China
+#Server = mirrors.163.com
+#Server = mirror.bjtu.edu.cn
+#Server = mirror.lzu.edu.cn
+
+## Japan
+#Server = ftp.tsukuba.wide.ad.jp
+#Server = ftp.jaist.ac.jp
+#Server = jpn.mirror.pkgbuild.com
+
+## South Korea
+#Server = ftp.kaist.ac.kr
+#Server = ftp.lanet.kr
+#Server = mirror.premi.st
+
+## Taiwan
+#Server = archlinux.cs.nctu.edu.tw
+#Server = shadow.ind.ntou.edu.tw
+#Server = shadow.ind.ntu.edu.tw
+#Server = ftp.tku.edu.tw
+#Server = ftp.yzu.edu.tw
