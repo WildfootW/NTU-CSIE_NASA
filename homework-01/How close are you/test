@@ -1,16 +1,16 @@
-PING mirrors.evowise.com (104.19.139.75) 56(84) bytes of data. --- mirrors.evowise.com ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2188ms rtt min/avg/max/mdev = 61.368/84.006/126.630/30.159 ms
-PING mirror.rackspace.com (180.150.156.88) 56(84) bytes of data. --- mirror.rackspace.com ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2002ms rtt min/avg/max/mdev = 57.990/83.444/125.907/30.223 ms
-PING mirrors.163.com (59.111.0.251) 56(84) bytes of data. --- mirrors.163.com ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 1999ms rtt min/avg/max/mdev = 126.252/191.999/294.278/73.299 ms
-PING mirror.bjtu.edu.cn (202.112.154.58) 56(84) bytes of data. --- mirror.bjtu.edu.cn ping statistics --- 3 packets transmitted, 0 received, 100% packet loss, time 2025ms
-PING mirror.lzu.edu.cn (202.201.0.160) 56(84) bytes of data. --- mirror.lzu.edu.cn ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2034ms rtt min/avg/max/mdev = 716.373/1457.954/2334.166/667.287 ms, pipe 3
-PING ftp.tsukuba.wide.ad.jp (203.178.132.80) 56(84) bytes of data. --- ftp.tsukuba.wide.ad.jp ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2001ms rtt min/avg/max/mdev = 50.591/91.573/156.452/46.404 ms
-PING ftp.jaist.ac.jp (150.65.7.130) 56(84) bytes of data. --- ftp.jaist.ac.jp ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2002ms rtt min/avg/max/mdev = 72.548/151.632/232.610/65.360 ms
-PING jpn.mirror.pkgbuild.com (161.202.225.107) 56(84) bytes of data. --- jpn.mirror.pkgbuild.com ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2002ms rtt min/avg/max/mdev = 120.067/182.301/300.655/83.726 ms
-PING ftp.kaist.ac.kr (103.22.220.133) 56(84) bytes of data. --- ftp.kaist.ac.kr ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2001ms rtt min/avg/max/mdev = 134.339/291.896/466.113/135.958 ms
-PING skywing.lanet.kr (183.96.178.9) 56(84) bytes of data. --- skywing.lanet.kr ping statistics --- 3 packets transmitted, 0 received, 100% packet loss, time 2052ms
-PING luna.sapbox.me (121.138.185.248) 56(84) bytes of data. --- luna.sapbox.me ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2002ms rtt min/avg/max/mdev = 65.427/296.382/415.844/163.343 ms
-PING linux.cs.nctu.edu.tw (140.113.17.5) 56(84) bytes of data. --- linux.cs.nctu.edu.tw ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2001ms rtt min/avg/max/mdev = 17.953/144.383/332.296/135.494 ms
-PING shadow.ind.ntou.edu.tw (140.121.80.200) 56(84) bytes of data. --- shadow.ind.ntou.edu.tw ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2000ms rtt min/avg/max/mdev = 228.394/383.808/617.038/167.934 ms
-
-PING ftp.tku.edu.tw (163.13.240.201) 56(84) bytes of data. --- ftp.tku.edu.tw ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2001ms rtt min/avg/max/mdev = 119.823/188.457/306.170/83.618 ms
-PING ftp.yzu.edu.tw (140.138.144.169) 56(84) bytes of data. --- ftp.yzu.edu.tw ping statistics --- 3 packets transmitted, 3 received, 0% packet loss, time 2003ms rtt min/avg/max/mdev = 10.814/165.839/471.869/216.402 ms
+mirrors.evowise.com 58.378
+mirror.rackspace.com 202.400
+mirrors.163.com 100.040
+mirror.bjtu.edu.cn 253.134
+mirror.lzu.edu.cn 253.791
+ftp.tsukuba.wide.ad.jp 55.110
+ftp.jaist.ac.jp 58.376
+jpn.mirror.pkgbuild.com 102.211
+ftp.kaist.ac.kr 86.731
+ftp.lanet.kr 
+mirror.premi.st 80.546
+archlinux.cs.nctu.edu.tw 28.213
+shadow.ind.ntou.edu.tw 24.403
+shadow.ind.ntu.edu.tw 
+ftp.tku.edu.tw 27.755
+ftp.yzu.edu.tw 27.317
