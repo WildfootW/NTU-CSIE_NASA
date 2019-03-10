@@ -5,8 +5,6 @@
 #   Copyright (C) 2019 WildfootW All rights reserved.
 #
 
-TMP_FILE_PATH="/tmp/.csie_analytics"
-
 # option parser
 OPTION_N=10
 while [[ ! $# -eq 0 ]]; do
