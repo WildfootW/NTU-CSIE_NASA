@@ -20,7 +20,7 @@ get_ave_round_trip_time()
 FILEPATH="$1"
 #cat "$FILEPATH"
 
-all_result=""
+declare -a result_list
 while read line_origin; do
     line_header=`echo "$line_origin" | awk '{ print $1 }'`
     #echo "$line_header"
@@ -33,14 +33,10 @@ while read line_origin; do
         ave_time=""
         get_ave_round_trip_time server_domain ave_time
         if [[ "$ave_time" != "" ]]; then
-            # [TODO] this method seems stupid and their will have a empty line at the begging
-            all_result="$all_result$server_domain $ave_time\n"
-            #all_result=`printf "%s%s %s\n" "$all_result" "$server_domain" "$ave_time"`
-            #printf "%s" "$all_result"
+            result_list+=("$server_domain $ave_time")
         fi
     fi
 done < $FILEPATH
 
-# [TODO] this method seems stupid and their will have a empty line at the begging
-all_result=`echo -e "$all_result" | sort -g -k 2`
-echo "$all_result"
+# strange printf behavior
+printf "%s\n" "${result_list[@]}" | sort -g -k 2
