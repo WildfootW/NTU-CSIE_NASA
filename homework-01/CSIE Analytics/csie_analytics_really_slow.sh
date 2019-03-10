@@ -4,6 +4,7 @@
 #   GitHub: github.com/WildfootW
 #   Copyright (C) 2019 WildfootW All rights reserved.
 #
+# loop make this script very slow
 
 TMP_FILE_PATH="/tmp/.csie_analytics"
 
@@ -44,21 +45,22 @@ fi
 #echo "OPTION_N = ${OPTION_N}"
 #echo "FILEPATH = ${FILEPATH}"
 
-result=`cat "$FILEPATH" | awk -v FS="(GET|POST) " '{ print $2 }' | awk -v FS="(\?| HTTP\/[0-9])" '{ print $1 }' | sort | uniq -c | sort -g -r -k 1`
-
-declare -a path_list
-declare -a query_times_list
+declare -A record_arr
 total_query_times=0
-while read -r line; do
-    query_times=`echo $line | awk '{ print $1 }'`
-    path_list+=(`echo $line | awk '{ print $2 }'`)
-    query_times_list+=($query_times)
-    total_query_times=$(($total_query_times+$query_times))
-done <<< "$result"
+while read line_origin; do
+    path=`echo "$line_origin" | awk -v FS="(GET|POST) " '{ print $2 }' | awk -v FS="(\?| HTTP\/[0-9])" '{ print $1 }'`
+    record_arr["$path"]=$((${record_arr["$path"]}+1))
+    total_query_times=$((${total_query_times}+1))
+done < $FILEPATH
 
-printf "%-35s %-10s %s\n" "Path" "Times" "Percentage"
-for((i = 0;i < ${#path_list[@]} && i < $OPTION_N;++i)); do
-    percentage=`bc -l <<< "${query_times_list[$i]}*100/$total_query_times"`
-    printf "%-35s %-10s %-2.2f%%\n" ${path_list[$i]} ${query_times_list[$i]} $percentage
+declare -a answer_list
+echo "" > "$TMP_FILE_PATH"
+for key in "${!record_arr[@]}"; do
+    percentage=`bc -l <<< "${record_arr[$key]}*100/$total_query_times"`
+    printf "%-35s %-10s %-2.2f%%\n" $key ${record_arr[$key]} $percentage >> "$TMP_FILE_PATH"
+    #answer+=(`printf "%-35s %-10s %-2.2f%%\n" $key ${record_arr[$key]} $percentage`)
 done
-
+printf "%-35s %-10s %s\n" "Path" "Times" "Percentage"
+cat "$TMP_FILE_PATH" | sort -g -r -k 2 | head -n $OPTION_N
+rm "$TMP_FILE_PATH"
+#printf "%s" "${answer[@]}" | sort -g -k 2
