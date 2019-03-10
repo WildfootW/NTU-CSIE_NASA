@@ -19,8 +19,10 @@ echo -e "\n> Usage: csie_analytics.sh [-n count] [filename]"
 ./csie_analytics.sh
 ./csie_analytics.sh -n 10
 
-echo -e "\n> normal test:"
+echo -e "\n> normal case:"
 echo "./csie_analytics.sh log.txt"
 ./csie_analytics.sh log.txt
+
+echo -e "\n> normal case:"
 echo "./csie_analytics.sh -n 2 log.txt"
 ./csie_analytics.sh -n 2 log.txt

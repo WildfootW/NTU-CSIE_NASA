@@ -5,6 +5,8 @@
 #   Copyright (C) 2019 WildfootW All rights reserved.
 #
 
+TMP_FILE_PATH="/tmp/.csie_analytics"
+
 # option parser
 OPTION_N=10
 while [[ ! $# -eq 0 ]]; do
@@ -51,13 +53,13 @@ while read line_origin; do
 done < $FILEPATH
 
 declare -a answer_list
-echo "" > /tmp/.csie_analytics
+echo "" > "$TMP_FILE_PATH"
 for key in "${!record_arr[@]}"; do
     percentage=`bc -l <<< "${record_arr[$key]}*100/$total_query_times"`
-    printf "%-35s %-10s %-2.2f%%\n" $key ${record_arr[$key]} $percentage >> /tmp/.csie_analytics
+    printf "%-35s %-10s %-2.2f%%\n" $key ${record_arr[$key]} $percentage >> "$TMP_FILE_PATH"
     #answer+=(`printf "%-35s %-10s %-2.2f%%\n" $key ${record_arr[$key]} $percentage`)
 done
 printf "%-35s %-10s %s\n" "Path" "Times" "Percentage"
-cat /tmp/.csie_analytics | sort -g -r -k 2 | head -n $OPTION_N
-rm /tmp/.csie_analytics
+cat "$TMP_FILE_PATH" | sort -g -r -k 2 | head -n $OPTION_N
+rm "$TMP_FILE_PATH"
 #printf "%s" "${answer[@]}" | sort -g -k 2
