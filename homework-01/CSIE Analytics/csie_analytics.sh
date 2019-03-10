@@ -31,11 +31,11 @@ while [[ ! $# -eq 0 ]]; do
                 echo "Usage: csie_analytics.sh [-n count] [filename]"
                 exit 1
             fi
-            if [[ ! -f $FILE ]]; then
+            FILE="$key"
+            if [[ ! -e $FILE ]]; then
                 echo "Error: log file does not exist."
                 exit 1
             fi
-            FILE="$key"
             ;;
     esac
 done
