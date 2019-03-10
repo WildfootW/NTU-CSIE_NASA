@@ -10,33 +10,39 @@ SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/Pwngdb
 SCRIPTPATH=$(dirname "$SCRIPT")
 
+# option parser
 while [[ ! $# -eq 0 ]]; do
     key="$1"
     shift
     case $key in
-        -a|--option-a)
-            OPTIONA="$1"
-            shift
-            ;;
-        -b|--option-b)
-            OPTIONB="$1"
-            shift
-            ;;
-        -c|--option-c)
-            OPTIONC="$1"
+        -n)
+            if [[ ! $1 =~ ^-?[0-9]+$ ]] && [[ ! $1 =~ ^-?[0-9]+\.?[0-9]+$ ]]; then # if not a [10, -10, 10.5, -5.2]
+                echo "Error: option requires an argument."
+                exit 1
+            elif [[ ! $1 =~ ^[0-9]+$ ]]; then # if not a positive integer
+                echo "Error: line number must be positive integer."
+                exit 1
+            fi
+            OPTION_N="$1"
             shift
             ;;
         *)
-            if [[ $FILE != "" ]]; then
-                echo "unknown option \"$FILE\""
+            if [[ $FILE != "" ]] || [[ $key =~ ^-.*$ ]]; then
+                echo "Usage: csie_analytics.sh [-n count] [filename]"
+                exit 1
+            fi
+            if [[ ! -f $FILE ]]; then
+                echo "Error: log file does not exist."
                 exit 1
             fi
             FILE="$key"
             ;;
     esac
 done
-echo "OPTIONA = ${OPTIONA}"
-echo "OPTIONB = ${OPTIONB}"
-echo "OPTIONC = ${OPTIONC}"
-echo "FILE    = ${FILE}"
+if [[ $FILE == "" ]]; then
+    echo "Usage: csie_analytics.sh [-n count] [filename]"
+    exit 1
+fi
+echo "OPTION_N = ${OPTION_N}"
+echo "FILE     = ${FILE}"
 
