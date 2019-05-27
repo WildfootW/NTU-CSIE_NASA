@@ -1,0 +1,18 @@
+$TTL 3H
+@	IN SOA	@ b07611012.com. (
+					0	; serial
+					1D	; refresh
+					1H	; retry
+					1W	; expire
+					3H )	; minimum
+@	IN A 	87.87.87.1
+@	IN A 	87.87.87.2
+@	IN A 	87.87.87.3
+@	IN A 	87.87.87.4
+@	IN A 	87.87.87.5
+@	IN A 	87.87.87.6
+@	IN A 	87.87.87.7
+@	IN A 	87.87.87.8
+@	IN NS	dns.b07611012.com.
+dns	IN A	87.87.87.87
+alias	IN CNAME	b07611012.com.
