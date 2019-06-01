@@ -6,8 +6,6 @@
 #   Copyright (C) 2019 WildfootW All rights reserved.
 #
 
-# not yet completed
-
 from pwn import *
 import hashlib
 import sqlite3
@@ -27,7 +25,6 @@ context.endian = "little"
 context.log_level = "DEBUG"
 context.terminal = ["tmux", "split-window"] # ["gnome-terminal", "-x", "sh", "-c"] # ["tmux", "neww"]
 
-is_local = False
 host = "linux10.csie.org"
 port = 15001
 #r = remote(host, port)

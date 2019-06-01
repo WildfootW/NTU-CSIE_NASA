@@ -60,4 +60,4 @@ while True:
         break
         #r.interactive("Pwned # ")
 
-
+input("press [enter] to exit")
